@@ -1,10 +1,37 @@
+import "./App.css";
+import Body from "./components/Body";
+import Browse from "./components/Browse";
+import Error from "./components/Error";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import appstore from "./utils/store";
+import {Provider} from 'react-redux';
 
-import './App.css';
-import Body from './components/Body';
 
-function App() {
+const App = () => {
+
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Body />,
+    },
+    {
+      path: "/browse",
+      element: <Browse />,
+    },
+    {
+      path:"*",
+      element: <Error />,
+    },
+  ]);
+
   return (
-    <Body/>
+    <Provider store={appstore}>
+
+    <RouterProvider router={appRouter}>
+      <Body />
+    </RouterProvider>
+
+    </Provider>
   );
 }
 

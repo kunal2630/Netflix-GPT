@@ -1,10 +1,15 @@
-import React from 'react'
-import Landingpage from './Landingpage'
+import React from "react";
+import Landingpage from "./Landingpage";
+
 
 const Body = () => {
-  return (
-    <Landingpage/>
-  )
-}
 
-export default Body
+
+  return (
+    <>
+      <Landingpage />
+    </>
+  );
+};
+
+export default Body;
