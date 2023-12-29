@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 
-import "./LandingPage.css";
 import {
   ValidateFormEmail,
   ValidateFormPassword,
@@ -13,7 +12,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { updateProfile } from "firebase/auth";
-import Header from "./Header";
+import Header from "./Header.js";
 
 const Landingpage = () => {
   const dispatch = useDispatch();
@@ -94,14 +93,16 @@ const Landingpage = () => {
   };
 
   return (
-    <>
+    <div className="relative">
       <Header />
-      <div className="form absolute w-[100%]  min-h-[100vh] p-auto">
+
+      <div className="form absolute  min-h-[120vh]  bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_medium.jpg')]  w-full  bg-cover">
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}
-          className="bg-black rounded-2xl md:w-[55%] lg:w-[40%] xl:w-[35%] w-[95%]  mx-auto p-10 bg-opacity-90 my-24"
+          className="bg-black rounded-2xl p-4 md:w-1/2  lg:w-1/3 w-3/4
+           bg-opacity-90 mt-24 mx-auto"
         >
           <h1 className="text-white text-4xl font-bold m-4 mb-8">
             {signIn ? "Sign In" : "Sign Up"}
@@ -160,7 +161,7 @@ const Landingpage = () => {
           </p>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
