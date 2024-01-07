@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useSelector } from "react-redux";
@@ -10,12 +10,17 @@ import { NETFLIX_LOGO } from "../utils/constants";
 import { FaSearch } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { updateSearchValue } from "../utils/searchSlice";
+import { removeGptSuggestedMovies } from "../utils/nowPlayingMovieSlice";
+import {
+  addCastDetailsFromId,
+  addMovieDetailsFromId,
+  addMovieId,
+} from "../utils/movieSlice";
 
 const Header = () => {
   const userName = useSelector((store) => store.user);
-  const searchValue = useSelector((store) => store?.search?.searchValue
-  );
-  
+  const searchValue = useSelector((store) => store?.search?.searchValue);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [scrolling, setScrolling] = useState(false);
@@ -39,6 +44,10 @@ const Header = () => {
   }, []);
 
   const signoutHandler = () => {
+    dispatch(addMovieId(null));
+    dispatch(addMovieDetailsFromId(null));
+    dispatch(addCastDetailsFromId(null));
+
     signOut(auth)
       .then(() => {
         // Sign-out successful.
@@ -65,21 +74,30 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute ">
+    <div className="absolute  ">
       <div
         className={`flex  justify-between   bg-gradient-to-b from-[#141414] transition-all ease-in-out duration-1000 text-white ${
           userName ? "fixed" : "relative"
-        } w-[100%] top-0 z-30 px-2  ${
-          (scrolling && userName )? "bg-[#141414] " : " "
+        } w-[100%] top-0 z-30  p-1   ${
+          scrolling && userName ? "bg-[#141414] " : " "
         }  `}
       >
-        <div className=" overflow-hidden   hover:cursor-pointer ">
-          <img
-            src={NETFLIX_LOGO}
-            className="xl:w-36 lg:w-32 md:w-28 sm:w-24 w-20  overflow-hidden"
-            alt="logo"
-          />
-        </div>
+        <Link to="/browse">
+          <div
+            className=" ml-3 overflow-hidden   hover:cursor-pointer "
+            onClick={() => {
+              dispatch(addMovieId(null));
+              dispatch(addMovieDetailsFromId(null));
+              dispatch(addCastDetailsFromId(null));
+            }}
+          >
+            <img
+              src={NETFLIX_LOGO}
+              className="xl:w-36 lg:w-32 w-28  overflow-hidden"
+              alt="logo"
+            />
+          </div>
+        </Link>
 
         {userName && (
           <>
@@ -88,11 +106,18 @@ const Header = () => {
                 className="hover:cursor-pointer outline-none focus:outline-none"
                 onClick={() => {
                   dispatch(updateSearchValue());
+                  dispatch(removeGptSuggestedMovies());
+                  dispatch(addMovieId(null));
+                  dispatch(addMovieDetailsFromId(null));
                 }}
               >
-                <button className={`flex text-lg outline-none focus:outline-none rounded-lg items-center gap-2 hover:text-red-600 hover:bg-black p-1 px-2 ${searchValue?"text-red-600 bg-black":""}`}>
+                <button
+                  className={`flex hover:bg-opacity-70 hover:text-white text-lg outline-none focus:outline-none rounded-lg items-center gap-2 hover:text-red-600 hover:bg-black p-1 px-2 ${
+                    searchValue ? "text-red-600 bg-black" : ""
+                  }`}
+                >
                   {searchValue ? (
-                    "HOME"
+                    "BROWSE"
                   ) : (
                     <>
                       {" "}
@@ -128,26 +153,6 @@ const Header = () => {
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
-                    <a
-                      className="dropdown-item hover:bg-black hover:text-white"
-                      href="/"
-                    >
-                      Manage Profile
-                    </a>
-                    <a
-                      className="dropdown-item hover:bg-black hover:text-white"
-                      href="/"
-                    >
-                      Account
-                    </a>
-                    <a
-                      className="dropdown-item hover:bg-black hover:text-white"
-                      href="/"
-                    >
-                      Help Centre
-                    </a>
-
-                    <div className="dropdown-divider "></div>
                     <button
                       className="dropdown-item hover:bg-red-600 hover:text-white"
                       onClick={signoutHandler}

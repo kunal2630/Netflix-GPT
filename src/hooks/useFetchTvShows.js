@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { options } from "../utils/constants";
 import {
   addOnAirShows,
@@ -8,6 +8,9 @@ import {
 } from "../utils/tvShowsSlice";
 const useFetchTvShows = () => {
   const dispatch = useDispatch();
+  const onAir = useSelector((store) => store.tvShows.onAir);
+  const trending = useSelector((store) => store.tvShows.trending);
+  const topRated = useSelector((store) => store.tvShows.topRated);
 
   const fetchOnAirTvShows = async () => {
     const response = await fetch(
@@ -19,7 +22,9 @@ const useFetchTvShows = () => {
   };
 
   useEffect(() => {
-    fetchOnAirTvShows();
+    if (!onAir) {
+      fetchOnAirTvShows();
+    }
   }, []);
 
   const fetchTrendingTvShows = async () => {
@@ -32,7 +37,9 @@ const useFetchTvShows = () => {
   };
 
   useEffect(() => {
-    fetchTrendingTvShows();
+    if (!trending) {
+      fetchTrendingTvShows();
+    }
   }, []);
 
   const fetchTopRatedTvShows = async () => {
@@ -45,7 +52,9 @@ const useFetchTvShows = () => {
   };
 
   useEffect(() => {
-    fetchTopRatedTvShows();
+    if (!topRated) {
+      fetchTopRatedTvShows();
+    }
   }, []);
 };
 

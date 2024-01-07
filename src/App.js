@@ -5,7 +5,6 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import appstore from "./utils/store";
 import { Provider } from "react-redux";
-import GptSearch from "./components/GptSearch";
 
 const App = () => {
   const appRouter = createBrowserRouter([

@@ -8,6 +8,7 @@ import useFetchTvShows from "../hooks/useFetchTvShows";
 import HomepageSecondaryComponent from "./HomepageSecondaryComponent";
 import { useSelector } from "react-redux";
 import GptSearch from "./GptSearch";
+import Details from "./Details";
 
 const Browse = () => {
   useFetchTrendingMovie();
@@ -16,13 +17,15 @@ const Browse = () => {
   useFetchTvShows();
 
   const searchValue = useSelector((store) => store?.search?.searchValue);
+  const movieId = useSelector((store) => store.movie.movieId);
 
   return (
     <>
       <Header />
-      {searchValue ? (
-        <GptSearch />
-      ) : (
+
+      {searchValue && !movieId && <GptSearch />}
+      {movieId &&  <Details id={movieId} />}
+      {!movieId && !searchValue && (
         <>
           <HomepageMainComponent />
           <HomepageSecondaryComponent />

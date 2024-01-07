@@ -75,13 +75,14 @@ const Landingpage = () => {
                 dispatch(
                   addUser({ uid: uid, email: email, displayName: displayName })
                 );
+                alert("Thanks For Signing Up");
+                setSignIn(true);
               })
               .catch((error) => {
                 // An error occurred
                 setAuthError(error.message);
               });
-            alert("Thanks For Signing Up");
-            setSignIn(true);
+
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -102,7 +103,7 @@ const Landingpage = () => {
             e.preventDefault();
           }}
           className="bg-black rounded-2xl p-4 md:w-1/2  lg:w-1/3 w-3/4
-           bg-opacity-90 mt-24 mx-auto"
+           bg-opacity-90 mt-20 mx-auto"
         >
           <h1 className="text-white text-4xl font-bold m-4 mb-8">
             {signIn ? "Sign In" : "Sign Up"}
@@ -125,7 +126,7 @@ const Landingpage = () => {
             placeholder="Email or phone number"
           />
           {!signIn && emailErrorMsg && (
-            <p className="text-red-600 p-3 text-xl">{emailErrorMsg}</p>
+            <p className="text-red-600 px-3 py-1 text-xl">{emailErrorMsg}</p>
           )}
           <input
             className="text-white w-[90%] p-[13px] m-3 text-lg bg-[#333333] rounded-md outline-none"
@@ -135,10 +136,10 @@ const Landingpage = () => {
             placeholder="Password"
           />
           {!signIn && passwordErrorMsg && (
-            <p className="text-red-600 p-3 text-3xl">{passwordErrorMsg}</p>
+            <p className="text-red-600 px-3 py-1 text-xl">{passwordErrorMsg}</p>
           )}
           {signIn && authError && (
-            <p className="text-red-600 p-3 text-xl">
+            <p className="text-red-600 px-3 py-1 text-xl">
               Invalid Username or Password
             </p>
           )}

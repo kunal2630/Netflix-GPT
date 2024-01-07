@@ -1,9 +1,11 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { options } from "../utils/constants";
 import { addTrendingMovies } from "../utils/movieSlice";
 
 const useFetchTrendingMovie = () => {
+  const trendingMovie = useSelector((store) => store.movie.trending);
+
   const dispatch = useDispatch();
 
   const fetchTrendingMovie = async () => {
@@ -16,7 +18,11 @@ const useFetchTrendingMovie = () => {
   };
 
   useEffect(() => {
-    fetchTrendingMovie();
+    //Doing Memoisation , that is only calling fetchTrendingMovie if trending movie data is not present in store
+
+    if (!trendingMovie) {
+      fetchTrendingMovie();
+    }
   }, []);
 };
 

@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { options } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addTrailerData } from "../utils/nowPlayingMovieSlice";
 
 const useFetchNowPlayingMovieTeaser = (id) => {
-  const [trailerData, setTrailerData] = useState();
+  const dispatch = useDispatch();
+
 
   const fetchTrailerInfo = async () => {
     const response = await fetch(
@@ -13,14 +16,16 @@ const useFetchNowPlayingMovieTeaser = (id) => {
     const filterData = await data?.results?.filter(
       (it) => it.type === "Trailer"
     );
-    if (filterData?.length > 0) setTrailerData(filterData[0]);
+    if (filterData?.length > 0) {
+      dispatch(addTrailerData(filterData[0]));
+    }
   };
 
   useEffect(() => {
-    fetchTrailerInfo();
-  }, [id]);
+  
+      fetchTrailerInfo();
 
-  return trailerData;
+  }, [id]);
 };
 
 export default useFetchNowPlayingMovieTeaser;
