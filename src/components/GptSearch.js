@@ -99,19 +99,24 @@ const GptSearch = () => {
           className="flex w-[70%] sm:w-[60%] md:w-[50%] lg:w-[40%] z-10  rounded-lg bg-black 
           text-white pl-2"
         >
-          <div className=" w-10/12   p-3">
+          <div className=" w-10/12   p-3 ">
             <input
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleGptSearch();
+                }
+              }}
               type="text"
               ref={searchValue}
               name=""
               id=""
               className={`w-[100%]  bg-black outline-none text-lg font-semibold ${
-                emptySearch ? "placeholder-red-600 " : "placeholder-white"
+                emptySearch ? "placeholder-red-600 " : "placeholder-slate-300 hover:placeholder-white"
               } `}
               placeholder={
                 emptySearch
                   ? "Search Query cant be blank!"
-                  : "What you would like to watch today..."
+                  : "Need movie ideas? Ask GPT for suggestions!"
               }
             />
           </div>
@@ -120,7 +125,7 @@ const GptSearch = () => {
             className="flex w-2/12  p-2  items-center justify-center hover:cursor-pointer"
             onClick={handleGptSearch}
           >
-            <FaSearch size={25} className="text-white rounded-md " />
+            <FaSearch size={25} className="text-white rounded-md hover:opacity-70 " />
           </div>
         </div>
       </div>

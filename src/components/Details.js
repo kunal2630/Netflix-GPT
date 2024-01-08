@@ -83,8 +83,9 @@ const Details = ({ id }) => {
       <div
         className={`relative  ${
           playTrailer ? "filter grayscale pointer-events-none" : ""
-        }`}
+        } `}
       >
+        
         {!movieIdDetails && <div></div>}
         {movieIdDetails && (
           <div className="flex -z-10 w-full py-10 px-12 mt-16 bg-slate-200 gap-6 shadow-2xl ">
