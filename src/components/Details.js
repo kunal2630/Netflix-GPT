@@ -153,9 +153,9 @@ const Details = ({ id }) => {
                 </div>}
               </div>
 
-              <div className=" w-full flex-col md:flex my-3   md:gap-14 items-center  ">
+              <div className=" w-full flex my-3 sm:gap-6  md:gap-14 items-center  ">
                 {tagLine && (
-                  <div className="max-w-[60%]">
+                  <div className=" hidden sm:flex max-w-[60%]">
                     <p className="text-slate-700 font-lg font-medium">
                       {tagLine}
                     </p>
