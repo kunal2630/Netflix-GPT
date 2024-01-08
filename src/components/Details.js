@@ -99,7 +99,7 @@ const Details = ({ id }) => {
             )}
             <div className="w-full lg:w-9/12">
               <div className="flex  items-center gap-10 ">
-                <div className="inline ">
+                <div className="inline  ">
                   {movieName && (
                     <div className="mb-1.5">
                       <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#000] ">
@@ -109,7 +109,7 @@ const Details = ({ id }) => {
                   )}
 
                   <div className="flex gap-4 text-md font-medium text-[#000] mb-3">
-                    <div className="border-[0.5px] rounded-md inline-flex items-center justify-center border-[#333] px-1    ">
+                    <div className=" flex  shrink-0 border-[0.5px] rounded-md  items-center justify-center border-[#333] px-1    ">
                       <p className="text-slate-700 font-medium">
                         {adultMovie ? "PG -18" : "PG -13"}
                       </p>
@@ -121,12 +121,12 @@ const Details = ({ id }) => {
                       </div>
                     )}
                     {genres && (
-                      <div className="hidden md:flex items-center justify-center gap-2">
+                      <div className="hidden  shrink-0 md:flex items-center justify-center gap-2">
                         <p className=" ">• {genres} •</p>
                       </div>
                     )}
                     {runtime && (
-                      <div className="flex items-center justify-center">
+                      <div className="flex  shrink-0 items-center justify-center">
                         <p className="">
                           {parseInt(runtime / 60)}h {runtime % 60}m
                         </p>
