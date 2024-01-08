@@ -24,7 +24,6 @@ const Details = ({ id }) => {
 
   const movieIdDetails = useSelector((store) => store.movie.movieDetailsFromId);
 
-  console.log(movieIdDetails);
 
   const castDetails = useSelector(
     (store) => store.movie.movieCastDetailsFromId

@@ -152,7 +152,7 @@ const Landingpage = () => {
           </button>
 
           <p className=" m-3  text-xl text-gray-400">
-            {signIn ? "New to Netflix?" : "Already Registered!"}{" "}
+            {signIn ? "New to Flicko?" : "Already Registered!"}{" "}
             <span
               onClick={toggleSignUp}
               className=" hover:underline hover:cursor-pointer text-2xl text-white"

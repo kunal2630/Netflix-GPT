@@ -10,7 +10,6 @@ const HomepageSecondaryComponent = () => {
   const nowPlayingMovie = useSelector(
     (store) => store.nowPlayingMovieData.nowPlayingMovie
   );
-  console.log(nowPlayingMovie);
 
 
   return (

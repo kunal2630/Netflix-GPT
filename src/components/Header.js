@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
-import logo from '../images/LOGO.png'
+import logo from "../images/LOGO.png";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { NETFLIX_LOGO } from "../utils/constants";
 import { FaSearch } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { updateSearchValue } from "../utils/searchSlice";
