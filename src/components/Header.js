@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
-import logo from "../images/logo.png";
+import logo from '../images/logo.png';
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
@@ -142,7 +142,7 @@ const Header = () => {
                 <img
                   className="w-9 h-9 mt-1 object-cover rounded-md"
                   src={userLogo}
-                  alt=""
+                  alt="userLogo"
                 />
                 <div className="dropdown-sm mt-3">
                   <button
