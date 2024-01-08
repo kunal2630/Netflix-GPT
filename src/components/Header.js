@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
+import logo from '../images/LOGO.png'
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
@@ -92,8 +93,8 @@ const Header = () => {
             }}
           >
             <img
-              src={NETFLIX_LOGO}
-              className="xl:w-36 lg:w-32 w-28  overflow-hidden"
+              src={logo}
+              className="xl:w-28 pt-1 pb-1 lg:w-24 w-20  overflow-hidden"
               alt="logo"
             />
           </div>
