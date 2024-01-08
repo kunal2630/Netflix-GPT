@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { getAuth } from "firebase/auth";
+
 
 import {
   ValidateFormEmail,
@@ -8,13 +10,14 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { updateProfile } from "firebase/auth";
 import Header from "./Header.js";
 
 const Landingpage = () => {
+  const auth = getAuth();
+
   const dispatch = useDispatch();
 
   const [signIn, setSignIn] = useState(true);

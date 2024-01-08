@@ -9,6 +9,10 @@ import { options } from "../utils/constants";
 const useFetchMovieDetails = (id) => {
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+
+    
   const fetchMovieDetails = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" + id + "?language=en-US",
@@ -27,9 +31,9 @@ const useFetchMovieDetails = (id) => {
     dispatch(addCastDetailsFromId(castDetails));
   };
 
-  useEffect(() => {
     fetchMovieDetails();
     fetchCastDetails();
+    // eslint-disable-next-line
   }, [id]);
 };
 

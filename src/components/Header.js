@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
 import logo from "../images/LOGO.png";
 import { useDispatch } from "react-redux";
@@ -41,6 +41,8 @@ const Header = () => {
 
     //Unsubscribe when the component unmounts
     return () => unsubscribe();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const signoutHandler = () => {
@@ -71,6 +73,8 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

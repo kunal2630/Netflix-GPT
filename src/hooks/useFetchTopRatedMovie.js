@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { options } from "../utils/constants";
 import { addTopRatedMovies } from "../utils/movieSlice";
@@ -21,6 +21,8 @@ const useFetchTopRatedMovie = () => {
     if (!topRatedMovie) {
       fetchTopRatedMovie();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

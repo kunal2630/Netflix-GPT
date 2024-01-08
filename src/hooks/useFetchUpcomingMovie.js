@@ -21,6 +21,7 @@ const useFetchUpcomingMovie = () => {
     if (!upcomingMovie) {
       fetchUpcomingMovie();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

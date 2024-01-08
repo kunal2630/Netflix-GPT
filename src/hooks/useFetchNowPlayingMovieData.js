@@ -22,6 +22,8 @@ const useFetchNowPlayingMovieData = () => {
     if (!nowPlayingMovie) {
       fetchNowPlayingMovies();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
 import nowPlayingMovieReducer from "./nowPlayingMovieSlice";
 import movieReducer from './movieSlice';
-import tvShowsReducer from "./tvShowsSlice";
 import searchReducer from "./searchSlice";
 
 const appstore = configureStore({
@@ -10,7 +9,6 @@ const appstore = configureStore({
     user: userReducer,
     nowPlayingMovieData: nowPlayingMovieReducer, 
     movie:movieReducer,
-    tvShows:tvShowsReducer,
     search:searchReducer
   },
 });

@@ -6,7 +6,6 @@ import { addTrailerData } from "../utils/nowPlayingMovieSlice";
 const useFetchNowPlayingMovieTeaser = (id) => {
   const dispatch = useDispatch();
 
-
   const fetchTrailerInfo = async () => {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
@@ -22,9 +21,8 @@ const useFetchNowPlayingMovieTeaser = (id) => {
   };
 
   useEffect(() => {
-  
-      fetchTrailerInfo();
-
+    fetchTrailerInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 };
 
