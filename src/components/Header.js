@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
 import userLogo from "../images/Netflix-avatar.png";
-import logo from "../images/LOGO.png";
+import logo from "../images/logo.png";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
@@ -97,7 +97,7 @@ const Header = () => {
           >
             <img
               src={logo}
-              className="xl:w-28 pt-1 pb-1 lg:w-24 w-20  overflow-hidden"
+              className="xl:w-28 pt-2 pb-1 lg:w-24 w-20  overflow-hidden"
               alt="logo"
             />
           </div>
@@ -116,7 +116,7 @@ const Header = () => {
                 }}
               >
                 <button
-                  className={`flex hover:bg-opacity-70 hover:text-white text-lg outline-none focus:outline-none rounded-lg items-center gap-2 hover:text-red-600 hover:bg-black p-1 px-2 ${
+                  className={`flex hover:bg-opacity-70 hover:text-white text-lg outline-none focus:outline-none rounded-lg items-center gap-2 hover:bg-black p-1 px-2 ${
                     searchValue ? "text-red-600 bg-black" : ""
                   }`}
                 >
@@ -135,7 +135,7 @@ const Header = () => {
                 {userName?.displayName}
               </p>
               <IoIosNotifications
-                className="text-3xl  hover:cursor-pointer"
+                className="hidden sm:flex text-3xl  hover:cursor-pointer"
                 size={25}
               />
               <div className="flex gap-2 ">

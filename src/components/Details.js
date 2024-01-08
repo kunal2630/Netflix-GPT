@@ -116,7 +116,7 @@ const Details = ({ id }) => {
                     </div>
 
                     {releaseDate && (
-                      <div className="inline-flex items-center justify-center">
+                      <div className="hidden md:inline-flex items-center justify-center">
                         <p className="">{releaseDate}</p>
                       </div>
                     )}
@@ -153,7 +153,7 @@ const Details = ({ id }) => {
                 </div>}
               </div>
 
-              <div className=" w-full flex my-3  gap-14 items-center  ">
+              <div className=" w-full flex-col md:flex my-3   md:gap-14 items-center  ">
                 {tagLine && (
                   <div className="max-w-[60%]">
                     <p className="text-slate-700 font-lg font-medium">
@@ -162,7 +162,7 @@ const Details = ({ id }) => {
                   </div>
                 )}
                 <div
-                  className="outline-none"
+                  className="outline-none mt-2 md:mt-0 "
                   onClick={() => {
                     setPlayTrailer(!playTrailer);
                   }}

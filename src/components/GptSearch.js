@@ -138,7 +138,7 @@ const GptSearch = () => {
 
       {searchingState && (
         <div
-          className="absolute top-0  z-20   bg-black bg-opacity-80 text-xl
+          className="absolute top-0  z-20   bg-black bg-opacity-80 text-lg md:text-xl
          text-white justify-center"
         >
           <div className="flex justify-center items-center h-screen w-[100vw] ">

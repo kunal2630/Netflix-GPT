@@ -100,12 +100,12 @@ const Landingpage = () => {
     <div className="relative">
       <Header />
 
-      <div className="form absolute  min-h-[120vh]  bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_medium.jpg')]  w-full  bg-cover">
+      <div className="form absolute md:pt-2 pt-24  min-h-[100vh]  bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_medium.jpg')]  w-full  bg-cover">
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}
-          className="bg-black rounded-2xl p-4 md:w-1/2  lg:w-1/3 w-3/4
+          className="bg-black rounded-2xl p-4 md:w-1/2  lg:w-1/3 w-[97%]
            bg-opacity-90 mt-20 mx-auto"
         >
           <h1 className="text-white text-4xl font-bold m-4 mb-8">
